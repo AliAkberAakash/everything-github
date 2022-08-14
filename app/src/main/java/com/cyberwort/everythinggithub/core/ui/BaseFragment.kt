@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.cyberwort.everythinggithub.core.viewmodel.BaseViewModel
 
-abstract class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
+abstract class BaseFragment : Fragment() {
 
-    abstract val viewModel : ViewModel
+    abstract val viewModel : BaseViewModel
 
     abstract fun getLayoutId(): Int
 

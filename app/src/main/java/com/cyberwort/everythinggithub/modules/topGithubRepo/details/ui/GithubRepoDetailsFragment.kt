@@ -5,7 +5,7 @@ import com.cyberwort.everythinggithub.R
 import com.cyberwort.everythinggithub.core.ui.BaseFragment
 import com.cyberwort.everythinggithub.modules.topGithubRepo.details.viewmodel.GithubRepoDetailsViewModel
 
-class GithubRepoDetailsFragment : BaseFragment<GithubRepoDetailsViewModel>() {
+class GithubRepoDetailsFragment : BaseFragment() {
 
     override val viewModel : GithubRepoDetailsViewModel by viewModels()
 

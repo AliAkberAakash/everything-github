@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cyberwort.everythinggithub.core.viewmodel.BaseViewModel
 
-abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
-    abstract val viewModel : ViewModel
+    abstract val viewModel : BaseViewModel
 
     abstract fun getLayoutId(): Int
 
