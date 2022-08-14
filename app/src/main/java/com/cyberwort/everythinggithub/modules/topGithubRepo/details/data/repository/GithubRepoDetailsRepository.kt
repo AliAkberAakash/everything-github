@@ -1,4 +1,4 @@
 package com.cyberwort.everythinggithub.modules.topGithubRepo.details.data.repository
 
-class GithubRepoDetailsRepository {
+interface GithubRepoDetailsRepository {
 }

@@ -1,4 +1,7 @@
 package com.cyberwort.everythinggithub.modules.topGithubRepo.list.data.dataSource
 
-class GithubRepositoryListDataSourceImpl : GithubRepoListDataSource {
+import javax.inject.Inject
+
+class GithubRepoListDataSourceImpl @Inject constructor()
+    : GithubRepoListDataSource {
 }
