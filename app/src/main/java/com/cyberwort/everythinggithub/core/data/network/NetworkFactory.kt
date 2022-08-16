@@ -35,7 +35,6 @@ object NetworkFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
-            //.addCallAdapterFactory(ResultCallAdapterFactory())
             .client(okHttpClient)
             .callbackExecutor {
                 Logger.d("returning")
