@@ -20,10 +20,16 @@ class GithubRepoListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setObservers()
+    }
+
+    private fun setObservers(){
         viewModel.getGithubRepList()
             .observe(viewLifecycleOwner) {
                 if(it is NetworkResult.Success){
                     Logger.d("Got data in Fragment ${it.data?.items!![0].name}")
+                }else{
+                    Logger.d(it.message)
                 }
             }
     }
