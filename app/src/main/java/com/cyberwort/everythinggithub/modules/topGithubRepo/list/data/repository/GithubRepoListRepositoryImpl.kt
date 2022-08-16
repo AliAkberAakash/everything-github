@@ -2,6 +2,7 @@ package com.cyberwort.everythinggithub.modules.topGithubRepo.list.data.repositor
 
 import com.cyberwort.everythinggithub.modules.topGithubRepo.list.data.dataSource.GithubRepoListDataSource
 import com.cyberwort.everythinggithub.modules.topGithubRepo.list.data.model.GithubRepoListResponse
+import com.orhanobut.logger.Logger
 import javax.inject.Inject
 
 class GithubRepoListRepositoryImpl @Inject constructor(
@@ -9,6 +10,11 @@ class GithubRepoListRepositoryImpl @Inject constructor(
     ) : GithubRepoListRepository {
 
       override suspend fun getGithubRepoList() : GithubRepoListResponse {
-          return networkSource.getGuithubRepoList()
+          try{
+              return networkSource.getGuithubRepoList()
+          }catch (e : Exception) {
+              Logger.d(e)
+              throw e
+          }
       }
 }

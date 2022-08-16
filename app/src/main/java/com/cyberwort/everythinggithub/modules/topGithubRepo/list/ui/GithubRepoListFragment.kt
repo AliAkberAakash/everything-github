@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.cyberwort.everythinggithub.R
+import com.cyberwort.everythinggithub.core.data.networkResult.NetworkResult
 import com.cyberwort.everythinggithub.core.ui.BaseFragment
 import com.cyberwort.everythinggithub.modules.topGithubRepo.list.viewmodel.GithubRepoListViewModel
 import com.orhanobut.logger.Logger
@@ -22,7 +23,9 @@ class GithubRepoListFragment : BaseFragment() {
         Logger.d("Making network call")
         viewModel.getGithubRepList()
             .observe(viewLifecycleOwner) {
-                Logger.d("Got data in Fragment $it")
+                if(it is NetworkResult.Success){
+                    Logger.d("Got data in Fragment ${it.data?.items!![0].name}")
+                }
             }
     }
 

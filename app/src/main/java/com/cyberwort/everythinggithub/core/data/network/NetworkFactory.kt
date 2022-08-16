@@ -35,6 +35,7 @@ object NetworkFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(ResultCallAdapterFactory())
             .client(okHttpClient)
             .callbackExecutor {
                 Logger.d("returning")
@@ -47,7 +48,7 @@ object NetworkFactory {
             .readTimeout(TIME_OUT, TimeUnit.SECONDS)
             .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
             .addInterceptor(logInterceptor)
-            .addInterceptor(authInterceptor)
+            //.addInterceptor(authInterceptor)
             .authenticator { _, response -> response.request }
             .build()
     }
