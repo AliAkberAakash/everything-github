@@ -10,6 +10,6 @@ interface GithubRepoListService {
     suspend fun getGithubRepoList(
         @Query("q") keyword : String,
         @Query("per_page") perPage : Int,
-    ) : GithubRepoListResponse
+    ) : GithubRepoListResponse?
 
 }

@@ -9,7 +9,7 @@ class GithubRepoListRepositoryImpl @Inject constructor(
         val networkSource : GithubRepoListDataSource
     ) : GithubRepoListRepository {
 
-      override suspend fun getGithubRepoList() : GithubRepoListResponse {
+      override suspend fun getGithubRepoList() : GithubRepoListResponse? {
           try{
               return networkSource.getGuithubRepoList()
           }catch (e : Exception) {

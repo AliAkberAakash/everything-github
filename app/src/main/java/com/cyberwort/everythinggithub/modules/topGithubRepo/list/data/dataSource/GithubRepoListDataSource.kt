@@ -3,5 +3,5 @@ package com.cyberwort.everythinggithub.modules.topGithubRepo.list.data.dataSourc
 import com.cyberwort.everythinggithub.modules.topGithubRepo.list.data.model.GithubRepoListResponse
 
 interface GithubRepoListDataSource {
-    suspend fun getGuithubRepoList() : GithubRepoListResponse
+    suspend fun getGuithubRepoList() : GithubRepoListResponse?
 }

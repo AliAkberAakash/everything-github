@@ -20,7 +20,6 @@ class GithubRepoListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Logger.d("Making network call")
         viewModel.getGithubRepList()
             .observe(viewLifecycleOwner) {
                 if(it is NetworkResult.Success){

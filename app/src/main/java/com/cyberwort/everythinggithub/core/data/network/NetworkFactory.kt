@@ -35,7 +35,7 @@ object NetworkFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(ResultCallAdapterFactory())
+            //.addCallAdapterFactory(ResultCallAdapterFactory())
             .client(okHttpClient)
             .callbackExecutor {
                 Logger.d("returning")
@@ -57,12 +57,12 @@ object NetworkFactory {
         return object: Interceptor {
             override fun intercept(chain: Interceptor.Chain): Response {
                 val requestBuilder = chain.request().newBuilder()
-//            val token = getSharedPreference(appContext).token
+/*//            val token = getSharedPreference(appContext).token
                 val token = ""
                 if (token.isNotEmpty()) {
                     requestBuilder.addHeader("Authorization", token)
                         .addHeader("Cache-control", "no-cache")
-                }
+                }*/
                 try {
                     return chain.proceed(requestBuilder.build())
                 } catch (e: Exception) {

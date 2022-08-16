@@ -9,16 +9,11 @@ class GithubRepoListDataSourceImpl @Inject constructor(
         val service: GithubRepoListService
     ) : GithubRepoListDataSource {
 
-        override suspend fun getGuithubRepoList() : GithubRepoListResponse {
-           try {
-               return service.getGithubRepoList(
-                   keyword = "Android",
-                   perPage = 10,
-               )
-           }catch (e : Exception){
-               Logger.d(e)
-               throw e
-           }
+        override suspend fun getGuithubRepoList() : GithubRepoListResponse? {
+            return service.getGithubRepoList(
+                keyword = "Android",
+                perPage = 10,
+            )
         }
 
 }

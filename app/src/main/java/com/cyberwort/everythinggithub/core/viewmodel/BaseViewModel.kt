@@ -5,14 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.cyberwort.everythinggithub.core.data.networkResult.NetworkResult
 import com.orhanobut.logger.Logger
-import kotlinx.coroutines.Dispatchers
+import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel() {
-    fun <T : Any> runZoneGuarded(
-      apiCall : suspend () -> T,
-    ) : LiveData<NetworkResult<T>>{
-        return liveData(Dispatchers.IO) {
+    fun <T : Any?> runZoneGuarded(coroutineContext : CoroutineContext, apiCall : suspend () -> T) : LiveData<NetworkResult<T>>{
+
+        return liveData(coroutineContext) {
             emit(NetworkResult.Loading())
+
             try {
                 val response = apiCall()
                 emit(NetworkResult.Success(response))
